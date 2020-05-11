@@ -26,8 +26,13 @@ PRODUCT_SOONG_NAMESPACES += \
     device/lge/sdm845-common/bootctrl
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay
+PRODUCT_PACKAGES += \
+    Sdm845CarrierConfig \
+    Sdm845FrameworksRes \
+    Sdm845Settings \
+    Sdm845SettingsProvider \
+    Sdm845SystemUI \
+    Sdm845Telephony
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
