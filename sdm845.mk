@@ -27,11 +27,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay \
-    $(COMMON_PATH)/overlay-lineage
-
-PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(COMMON_PATH)/overlay-lineage/lineage-sdk
+    $(COMMON_PATH)/overlay
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
@@ -136,15 +132,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
     libbt-vendor
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 3120
-TARGET_SCREEN_WIDTH := 1440
-
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    Snap \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 # Context Hub
@@ -172,10 +163,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libvulkan
 
-# Doze
-PRODUCT_PACKAGES += \
-    LGEDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -195,10 +182,6 @@ PRODUCT_PACKAGES += \
 	qcom.fmradio.xml
 
 PRODUCT_BOOT_JARS += qcom.fmradio
-
-# Gesture handler
-PRODUCT_PACKAGES += \
-    GestureHandler
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -239,10 +222,6 @@ PRODUCT_PACKAGES += \
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-lge_sdm845
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -365,14 +344,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service \
     thermal.sdm845
-
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.judy
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
