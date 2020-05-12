@@ -51,21 +51,21 @@ using android::base::Trim;
 using android::base::GetProperty;
 using android::init::property_set;
 
-void property_override(const std::string& name, const std::string& value)
+void property_override(char const prop[], char const value[])
 {
-    size_t valuelen = value.size();
+	prop_info *pi;
 
-    prop_info* pi = (prop_info*) __system_property_find(name.c_str());
-    if (pi != nullptr) {
-        __system_property_update(pi, value.c_str(), valuelen);
-    }
-    else {
-        int rc = __system_property_add(name.c_str(), name.size(), value.c_str(), valuelen);
-        if (rc < 0) {
-            LOG(ERROR) << "property_set(\"" << name << "\", \"" << value << "\") failed: "
-                       << "__system_property_add failed";
-        }
-    }
+	pi = (prop_info*) __system_property_find(prop);
+	if (pi)
+		__system_property_update(pi, value, strlen(value));
+	else
+		__system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+void property_override_dual(char const system_prop[], char const vendor_prop[], const char value[])
+{
+	property_override(system_prop, value);
+	property_override(vendor_prop, value);
 }
 
 void init_target_properties()
@@ -118,6 +118,14 @@ void init_target_properties()
     property_set("ro.product.model", device);
     property_set("ro.vendor.product.model", device);
     property_set("ro.product.system.model", device);
+
+    // Dalvik
+	property_override_dual("dalvik.vm.heapstartsize", "dalvik.vm.heapstartsize", "16m");
+	property_override_dual("dalvik.vm.heapgrowthlimit", "dalvik.vm.heapgrowthlimit", "256m");
+	property_override_dual("dalvik.vm.heapsize", "dalvik.vm.heapsize", "512m");
+	property_override_dual("dalvik.vm.heaptargetutilization", "dalvik.vm.heaptargetutilization", "0.5");
+	property_override_dual("dalvik.vm.heapminfree", "dalvik.vm.heapminfree", "8m");
+	property_override_dual("dalvik.vm.heapmaxfree", "dalvik.vm.heapmaxfree", "32m");
 }
 
 void vendor_load_properties() {
