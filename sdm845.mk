@@ -22,9 +22,6 @@ COMMON_PATH := device/lge/sdm845-common
 # define hardware platform
 PRODUCT_PLATFORM := sdm845
 
-PRODUCT_SOONG_NAMESPACES += \
-    device/lge/sdm845-common/bootctrl
-
 # Overlays
 PRODUCT_PACKAGES += \
     Sdm845CarrierConfig \
@@ -63,8 +60,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    bootctrl.sdm845
+    android.hardware.boot@1.0-service
 
 AB_OTA_UPDATER := true
 
@@ -81,13 +77,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# Enable update engine sideloading by including the static version of the
-# boot_control HAL and its dependencies.
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm845.recovery \
-    libgptutils.judy.recovery \
+    bootctrl.sdm845 \
+    libcutils \
+    librecovery_updater_msm \
     libz \
-    libcutils
 
 PRODUCT_PACKAGES += \
     update_engine_sideload
