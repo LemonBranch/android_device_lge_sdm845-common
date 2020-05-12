@@ -311,6 +311,14 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(COMMON_PATH)/permissions/qti_libpermissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/qti_libpermissions.xml
 
+# QTI common
+TARGET_COMMON_QTI_COMPONENTS := \
+    av \
+    bt \
+    perf \
+    telephony \
+    wfd
+
 # RCS
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
