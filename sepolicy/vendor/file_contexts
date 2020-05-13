@@ -7,3 +7,6 @@
 /eri(/.*)?                      u:object_r:eri_file:s0
 /persist(/.*)?			u:object_r:mnt_vendor_file:s0
 # /vendor/firmware_mnt(/.*)?
+
+# Light
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.judypn	u:object_r:hal_light_default_exec:s0

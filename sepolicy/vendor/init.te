@@ -1,0 +1,5 @@
+allow init init:netlink_socket { read };
+allow init init:capability { sys_nice };
+
+allow init ion_device:chr_file { ioctl open read };
+allow init tee_device:chr_file { ioctl };
