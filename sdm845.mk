@@ -294,7 +294,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(COMMON_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
