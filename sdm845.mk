@@ -23,7 +23,9 @@ COMMON_PATH := device/lge/sdm845-common
 PRODUCT_PLATFORM := sdm845
 
 PRODUCT_SOONG_NAMESPACES += \
-    device/lge/sdm845-common/bootctrl
+    device/lge/sdm845-common/bootctrl \
+    hardware/google/interfaces \
+    hardware/google/pixel
 
 # Overlays
 PRODUCT_PACKAGES += \
