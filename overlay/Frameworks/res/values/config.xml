@@ -372,4 +372,8 @@
 
     <!-- True if the firmware supports Wi-Fi link probing -->
     <bool name="config_wifi_link_probing_supported">true</bool>
+
+    <!-- Flag specifying whether Doze is available on device -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
 </resources>
