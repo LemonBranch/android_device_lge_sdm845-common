@@ -67,6 +67,7 @@ vendor.qcom.bluetooth.soc=cherokee
 # Camera
 persist.camera.expose.aux=1
 camera.disable_zsl_mode=false
+vendor.camera.aux.packagelist=org.lineageos.snap,net.sourceforge.opencamera,org.codeaurora.snapcam
 
 # Display
 dev.pm.dyn_samplingrate=1
